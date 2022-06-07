@@ -54,3 +54,4 @@ sqlalchemy.orm.exc.StaleDataError: DELETE statement on table 'followers' expecte
 2022-06-04 15:18:54,849 INFO: Microblog startup [in C:\repos\project1\project1\app\__init__.py:48]
 2022-06-04 15:27:02,473 INFO: Microblog startup [in C:\repos\project1\project1\app\__init__.py:50]
 2022-06-06 14:34:17,339 INFO: Microblog startup [in C:\repos\project1\project1\app\__init__.py:51]
+2022-06-06 21:41:36,952 INFO: Microblog startup [in C:\repos\project1\project1\app\__init__.py:51]
