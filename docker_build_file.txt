@@ -1,0 +1,17 @@
+docker run --name microblog -d -p 5000:5000 --rm -e SECRET_KEY=my-secret-key \
+    -e MAIL_SERVER=smtp.googlemail.com -e MAIL_PORT=587 -e MAIL_USE_TLS=true \
+    -e MAIL_USERNAME=devTestingforLiam@gmail.com -e MAIL_PASSWORD=qjtrblcuoyicmunl \
+    --link mysql:dbserver \
+    -e DATABASE_URL=mysql+pymysql://microblog:roxymail0425@dbserver/microblog \
+    --link elasticsearch:elasticsearch \
+    -e ELASTICSEARCH_URL=http://elasticsearch:9200 \
+    microblog:latest
+
+docker run --name mysql -d -e MYSQL_RANDOM_ROOT_PASSWORD=yes \
+    -e MYSQL_DATABASE=microblog -e MYSQL_USER=microblog \
+    -e MYSQL_PASSWORD=roxymail0425 \
+    mysql/mysql-server:latest
+
+docker run --name elasticsearch -d -p 9200:9200 --rm \
+    -e "discovery.type=single-node" \
+    docker.elastic.co/elasticsearch/elasticsearch-oss:7.10.2
